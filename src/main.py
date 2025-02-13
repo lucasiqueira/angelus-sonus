@@ -3,7 +3,6 @@ import time
 import pygame
 import os
 import logging
-from datetime import datetime  # Importa datetime para capturar a data e hora
 
 # Caminho do arquivo de áudio
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -28,24 +27,45 @@ logging.info("O script angelus-sonus foi iniciado com sucesso!")
 
 
 def tocar_sino():
-    agora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Captura data e hora
-    logging.info(f"🔔 Sino tocado em {agora}")  # Registra no log
-    print(f"🔔 Tocando sino... ({agora})")  # Apenas para depuração manual
+    logging.info("🔔 Sino tocado")  # Registra no log
+    print("🔔 Tocando sino...")  # Apenas para depuração manual
     pygame.mixer.init()
     pygame.mixer.music.load(AUDIO_FILE)
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():
         time.sleep(1)
+    logging.info("🔔 Sino finalizado")  # Registra no log
 
+
+def iniciar_aplicacao():
+    logging.info("📌 Iniciando aplicação...")
+    print("📌 Iniciando aplicação...")
+    print("🔔 Testando execução do sino...")
+    tocar_sino()
+    print("🔔 Teste concluído com sucesso!")
+    logging.info("📌 Aplicação iniciada com sucesso.")
+
+
+iniciar_aplicacao()
 
 # Agendar os horários
 schedule.every().day.at("12:00").do(tocar_sino)
 schedule.every().day.at("18:00").do(tocar_sino)
 
+try:
+    print("⏳ Alarme configurado! Aguardando horários...")
+    while True:
+        schedule.run_pending()
+        time.sleep(30)  # Verifica o agendamento a cada 30 segundos
 
-print("⏳ Alarme configurado! Aguardando horários...")
+except KeyboardInterrupt:
+    logging.warning("⚠️ Script interrompido pelo usuário (Ctrl+C).")
+    print("\n⚠️ Interrupção detectada! Encerrando script com segurança.")
 
-# Loop principal
-while True:
-    schedule.run_pending()
-    time.sleep(30)  # Verifica o agendamento a cada 30 segundos
+except Exception as e:
+    logging.error(f"❌ Erro inesperado: {e}")
+    print(f"\n❌ Erro inesperado: {e}")
+
+finally:
+    logging.info("📌 Script angelus-sonus finalizado.")
+    print("📌 Script encerrado.")
