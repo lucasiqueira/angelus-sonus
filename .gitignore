@@ -1,3 +1,17 @@
-logs/
+# Ignorar o ambiente virtual
+/venv/
 
+# Ignorar arquivos de logs
+/logs/
+
+# Ignorar arquivos temporários do sistema
+*.log
+*.pyc
+*.pyo
+
+# Ignorar arquivos de variáveis de ambiente
 .env
+
+# Ignorar arquivos de configuração da IDE
+.vs_code/
+.idea/
