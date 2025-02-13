@@ -13,5 +13,5 @@
 .env
 
 # Ignorar arquivos de configuração da IDE
-.vs_code/
+.vscode/
 .idea/

@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "angelus-sonus"
+version = "1.0.1"
+description = "Projeto Angelus Sonus"
+authors = ["Lucas Siqueira"]
+repository = "https://github.com/lucasiqueira/angelus-sonus"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+iniconfig = "2.0.0"
+packaging = "24.2"
+pluggy = "1.5.0"
+pygame = "2.6.1"
+pytest = "8.3.4"
+python-dotenv = "1.0.1"
+schedule = "1.2.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
