@@ -4,6 +4,7 @@ version = "1.0.1"
 description = "Projeto Angelus Sonus"
 authors = ["Lucas Siqueira"]
 repository = "https://github.com/lucasiqueira/angelus-sonus"
+packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"

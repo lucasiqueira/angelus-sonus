@@ -8,6 +8,7 @@
 *.log
 *.pyc
 *.pyo
+.pytest_cache/
 
 # Ignorar arquivos de variáveis de ambiente
 .env
@@ -15,3 +16,6 @@
 # Ignorar arquivos de configuração da IDE
 .vscode/
 .idea/
+
+# Ignorar arquivos de configuração do sistema
+.DS_Store
