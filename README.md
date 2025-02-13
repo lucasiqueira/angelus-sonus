@@ -26,7 +26,7 @@ cd angelus-sonus
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # No Windows use: venv\Scripts\activate
+source venv/bin/activate
 ```
 
 ### 3. Instalar as dependências
